@@ -106,9 +106,12 @@
 
 ### Для разработчиков
 
-См. [BUILD.md](BUILD.md) для подробных инструкций по сборке.
+**Инструкции по сборке:**
+- 📱 [ANDROID_STUDIO.md](ANDROID_STUDIO.md) - Сборка через Android Studio (рекомендуется)
+- 🔧 [BUILD.md](BUILD.md) - Сборка через командную строку
+- ⚡ [QUICKSTART.md](QUICKSTART.md) - Быстрый старт
 
-Быстрый старт:
+Быстрый старт (командная строка):
 ```bash
 npm install
 cordova platform add android
