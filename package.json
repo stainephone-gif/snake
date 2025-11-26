@@ -1,0 +1,39 @@
+{
+  "name": "neon-snake",
+  "version": "1.0.0",
+  "displayName": "Neon Snake",
+  "description": "Современная киберпанк версия классической игры змейка",
+  "main": "index.js",
+  "scripts": {
+    "android": "cordova run android",
+    "build": "cordova build android",
+    "build-release": "cordova build android --release",
+    "clean": "cordova clean",
+    "prepare": "cordova prepare"
+  },
+  "keywords": [
+    "snake",
+    "game",
+    "mobile",
+    "cordova",
+    "android"
+  ],
+  "author": "Neon Snake Team",
+  "license": "MIT",
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^12.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-vibration": {},
+      "cordova-plugin-media": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-whitelist": {}
+    }
+  }
+}

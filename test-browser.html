@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Snake - Browser Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            color: #fff;
+            font-family: monospace;
+        }
+        .info {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid #00f3ff;
+            border-radius: 10px;
+        }
+        .warning {
+            color: #ffff00;
+            margin: 10px 0;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+            border: 2px solid #00f3ff;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h1>🐍 NEON SNAKE - Тестирование в браузере</h1>
+        <p class="warning">⚠️ Это режим разработки для тестирования</p>
+        <p>Используйте <strong>стрелки</strong> или <strong>WASD</strong> для управления</p>
+        <p>Вибрация не будет работать в браузере</p>
+        <p>Для полного опыта соберите APK: <code>cordova build android</code></p>
+    </div>
+
+    <iframe src="www/index.html" width="400" height="800"></iframe>
+
+    <script>
+        // Mock cordova для браузерного тестирования
+        window.cordova = {
+            platformId: 'browser'
+        };
+
+        console.log('Browser test mode enabled');
+        console.log('Cordova features will be mocked');
+    </script>
+</body>
+</html>

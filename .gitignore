@@ -32,3 +32,21 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Cordova
+platforms/
+plugins/
+node_modules/
+
+# Build JSON (contains passwords)
+build.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
