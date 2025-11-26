@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0e27">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+
+    <title>Neon Snake</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Экран загрузки -->
+    <div id="loading-screen" class="screen active">
+        <div class="neon-logo">
+            <h1>NEON<br>SNAKE</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">ЗАГРУЗКА...</p>
+        </div>
+    </div>
+
+    <!-- Главное меню -->
+    <div id="menu-screen" class="screen">
+        <div class="menu-container">
+            <h1 class="game-title neon-text">NEON<br>SNAKE</h1>
+
+            <div class="stats-display">
+                <div class="stat-item">
+                    <span class="stat-label">РЕКОРД</span>
+                    <span class="stat-value" id="high-score">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">ИГР СЫГРАНО</span>
+                    <span class="stat-value" id="games-played">0</span>
+                </div>
+            </div>
+
+            <div class="menu-buttons">
+                <button class="btn btn-primary" id="start-btn">
+                    <span class="btn-icon">▶</span>
+                    НАЧАТЬ ИГРУ
+                </button>
+                <button class="btn btn-secondary" id="difficulty-btn">
+                    <span class="btn-icon">⚙</span>
+                    СЛОЖНОСТЬ: <span id="difficulty-text">НОРМАЛЬНАЯ</span>
+                </button>
+                <button class="btn btn-secondary" id="sound-btn">
+                    <span class="btn-icon" id="sound-icon">🔊</span>
+                    ЗВУК: <span id="sound-text">ВКЛ</span>
+                </button>
+                <button class="btn btn-secondary" id="vibration-btn">
+                    <span class="btn-icon">📳</span>
+                    ВИБРАЦИЯ: <span id="vibration-text">ВКЛ</span>
+                </button>
+            </div>
+
+            <div class="features-info">
+                <h3>ОСОБЕННОСТИ</h3>
+                <ul>
+                    <li>🌀 Порталы для телепортации</li>
+                    <li>⚡ Power-ups: щит, магнит, удвоенные очки</li>
+                    <li>🧱 Препятствия на поле</li>
+                    <li>⏱️ Временное замедление</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Игровой экран -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="score-panel">
+                <span class="label">ОЧКИ</span>
+                <span class="value" id="current-score">0</span>
+            </div>
+            <div class="score-panel">
+                <span class="label">ДЛИНА</span>
+                <span class="value" id="snake-length">3</span>
+            </div>
+            <button class="pause-btn" id="pause-btn">⏸</button>
+        </div>
+
+        <canvas id="game-canvas"></canvas>
+
+        <div class="active-powerups" id="active-powerups"></div>
+
+        <div class="game-controls">
+            <div class="control-hint">Свайп для управления</div>
+        </div>
+    </div>
+
+    <!-- Экран паузы -->
+    <div id="pause-screen" class="screen overlay">
+        <div class="modal">
+            <h2 class="neon-text">ПАУЗА</h2>
+            <div class="menu-buttons">
+                <button class="btn btn-primary" id="resume-btn">
+                    <span class="btn-icon">▶</span>
+                    ПРОДОЛЖИТЬ
+                </button>
+                <button class="btn btn-secondary" id="restart-btn">
+                    <span class="btn-icon">🔄</span>
+                    ЗАНОВО
+                </button>
+                <button class="btn btn-secondary" id="menu-btn">
+                    <span class="btn-icon">🏠</span>
+                    МЕНЮ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран конца игры -->
+    <div id="gameover-screen" class="screen overlay">
+        <div class="modal">
+            <h2 class="neon-text game-over-title">GAME OVER</h2>
+
+            <div class="final-stats">
+                <div class="stat-row">
+                    <span class="label">ОЧКИ:</span>
+                    <span class="value" id="final-score">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="label">ДЛИНА:</span>
+                    <span class="value" id="final-length">0</span>
+                </div>
+                <div class="stat-row new-record" id="new-record" style="display: none;">
+                    <span class="label">🏆 НОВЫЙ РЕКОРД!</span>
+                </div>
+            </div>
+
+            <div class="menu-buttons">
+                <button class="btn btn-primary" id="play-again-btn">
+                    <span class="btn-icon">🔄</span>
+                    ЕЩЁ РАЗ
+                </button>
+                <button class="btn btn-secondary" id="back-menu-btn">
+                    <span class="btn-icon">🏠</span>
+                    МЕНЮ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+</body>
+</html>

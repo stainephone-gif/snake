@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.neonsnake.game" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Neon Snake</name>
+    <description>
+        Современная киберпанк версия классической игры змейка с уникальными механиками
+    </description>
+    <author email="dev@neonsnake.com" href="https://neonsnake.com">
+        Neon Snake Team
+    </author>
+
+    <content src="index.html" />
+
+    <access origin="*" />
+
+    <!-- Разрешения -->
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <!-- Настройки для Android -->
+    <platform name="android">
+        <preference name="android-minSdkVersion" value="24" />
+        <preference name="android-targetSdkVersion" value="33" />
+        <preference name="Orientation" value="portrait" />
+        <preference name="Fullscreen" value="true" />
+
+        <!-- Иконки -->
+        <icon density="ldpi" src="res/icon/android/ldpi.png" />
+        <icon density="mdpi" src="res/icon/android/mdpi.png" />
+        <icon density="hdpi" src="res/icon/android/hdpi.png" />
+        <icon density="xhdpi" src="res/icon/android/xhdpi.png" />
+        <icon density="xxhdpi" src="res/icon/android/xxhdpi.png" />
+        <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
+
+        <!-- Splash экран -->
+        <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
+        <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
+        <splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png" />
+        <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
+        <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
+        <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
+    </platform>
+
+    <!-- Глобальные настройки -->
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackgroundColor" value="0x0a0e27" />
+    <preference name="HideKeyboardFormAccessoryBar" value="true" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="2000" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value="300" />
+
+    <!-- Плагины Cordova -->
+    <plugin name="cordova-plugin-vibration" />
+    <plugin name="cordova-plugin-media" />
+    <plugin name="cordova-plugin-statusbar" />
+    <plugin name="cordova-plugin-splashscreen" />
+    <plugin name="cordova-plugin-whitelist" />
+</widget>
