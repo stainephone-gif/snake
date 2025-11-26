@@ -1,39 +1,28 @@
 {
   "name": "neon-snake",
   "version": "1.0.0",
-  "displayName": "Neon Snake",
   "description": "Современная киберпанк версия классической игры змейка",
-  "main": "index.js",
+  "author": "Neon Snake Team",
+  "license": "MIT",
   "scripts": {
-    "android": "cordova run android",
-    "build": "cordova build android",
-    "build-release": "cordova build android --release",
-    "clean": "cordova clean",
-    "prepare": "cordova prepare"
+    "dev": "npx http-server www -p 8000",
+    "android": "cap run android",
+    "build": "cap sync android",
+    "open:android": "cap open android"
   },
   "keywords": [
     "snake",
     "game",
     "mobile",
-    "cordova",
+    "capacitor",
     "android"
   ],
-  "author": "Neon Snake Team",
-  "license": "MIT",
-  "devDependencies": {
-    "cordova": "^12.0.0",
-    "cordova-android": "^12.0.0"
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0"
   },
-  "cordova": {
-    "platforms": [
-      "android"
-    ],
-    "plugins": {
-      "cordova-plugin-vibration": {},
-      "cordova-plugin-media": {},
-      "cordova-plugin-statusbar": {},
-      "cordova-plugin-splashscreen": {},
-      "cordova-plugin-whitelist": {}
-    }
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0"
   }
 }
