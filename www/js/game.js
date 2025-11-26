@@ -52,14 +52,7 @@ const COLORS = {
 };
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
-document.addEventListener('deviceready', onDeviceReady, false);
-
-function onDeviceReady() {
-    console.log('Cordova ready');
-    initGame();
-}
-
-// Для браузера (тестирование)
+// Capacitor автоматически готов, просто ждём загрузки DOM
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         setTimeout(initGame, 100);
@@ -790,19 +783,37 @@ function saveSettings() {
 }
 
 // ==================== УТИЛИТЫ ====================
-function vibrate(pattern) {
+async function vibrate(pattern) {
     if (!settings.vibrationEnabled) return;
 
     try {
-        if (navigator.vibrate) {
-            navigator.vibrate(pattern);
-        } else if (window.plugins && window.plugins.vibration) {
-            // Cordova plugin
+        // Проверяем доступность Capacitor Haptics
+        if (window.Capacitor && window.Capacitor.Plugins.Haptics) {
+            const { Haptics, ImpactStyle } = window.Capacitor.Plugins;
+
             if (Array.isArray(pattern)) {
-                window.plugins.vibration.vibrate(pattern);
+                // Для паттернов используем несколько вибраций
+                for (let i = 0; i < pattern.length; i += 2) {
+                    if (pattern[i] > 0) {
+                        await Haptics.impact({ style: ImpactStyle.Medium });
+                    }
+                    if (pattern[i + 1]) {
+                        await new Promise(resolve => setTimeout(resolve, pattern[i + 1]));
+                    }
+                }
             } else {
-                window.plugins.vibration.vibrate(pattern);
+                // Простая вибрация
+                if (pattern < 100) {
+                    await Haptics.impact({ style: ImpactStyle.Light });
+                } else if (pattern < 200) {
+                    await Haptics.impact({ style: ImpactStyle.Medium });
+                } else {
+                    await Haptics.impact({ style: ImpactStyle.Heavy });
+                }
             }
+        } else if (navigator.vibrate) {
+            // Fallback для браузера
+            navigator.vibrate(pattern);
         }
     } catch (e) {
         console.warn('Vibration not supported:', e);

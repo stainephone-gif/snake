@@ -33,10 +33,11 @@ google-services.json
 # Android Profiling
 *.hprof
 
-# Cordova
-platforms/
-plugins/
+# Capacitor
+android/
+ios/
 node_modules/
+.capacitor/
 
 # Build JSON (contains passwords)
 build.json

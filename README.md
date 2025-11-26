@@ -4,7 +4,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-Android-green)
-![Made with](https://img.shields.io/badge/made%20with-Cordova-blue)
+![Made with](https://img.shields.io/badge/made%20with-Capacitor-blue)
 
 ## ✨ Особенности
 
@@ -107,16 +107,18 @@
 ### Для разработчиков
 
 **Инструкции по сборке:**
-- 📱 [ANDROID_STUDIO.md](ANDROID_STUDIO.md) - Сборка через Android Studio (рекомендуется)
-- 🔧 [BUILD.md](BUILD.md) - Сборка через командную строку
+- 🚀 [CAPACITOR_BUILD.md](CAPACITOR_BUILD.md) - Подробная инструкция по сборке APK (РЕКОМЕНДУЕТСЯ)
+- 📱 [ANDROID_STUDIO.md](ANDROID_STUDIO.md) - Работа в Android Studio
 - ⚡ [QUICKSTART.md](QUICKSTART.md) - Быстрый старт
 
-Быстрый старт (командная строка):
+Быстрый старт (3 команды):
 ```bash
 npm install
-cordova platform add android
-cordova build android
+npx cap add android
+npx cap open android
 ```
+
+Затем в Android Studio: `Build → Build APK`
 
 ## 🎯 Геймплей
 
@@ -146,34 +148,30 @@ cordova build android
 
 ## 🛠️ Технологии
 
-- **Apache Cordova** - упаковка в нативное приложение
+- **Capacitor** - современный фреймворк для упаковки в нативное приложение
 - **HTML5 Canvas** - рендеринг графики
 - **JavaScript ES6+** - логика игры
 - **CSS3** - анимации и эффекты
 - **localStorage** - сохранение прогресса
-- **Cordova Plugins**:
-  - cordova-plugin-vibration
-  - cordova-plugin-statusbar
-  - cordova-plugin-splashscreen
+- **Capacitor Plugins**:
+  - @capacitor/haptics - тактильная обратная связь
 
 ## 📂 Структура проекта
 
 ```
 snake/
-├── www/                    # Исходники веб-приложения
-│   ├── index.html         # Главная страница
+├── www/                      # Исходники веб-приложения
+│   ├── index.html           # Главная страница
 │   ├── css/
-│   │   └── style.css      # Стили (неоновый дизайн)
+│   │   └── style.css        # Стили (неоновый дизайн)
 │   ├── js/
-│   │   └── game.js        # Логика игры
-│   └── img/               # Изображения
-├── res/                   # Ресурсы для сборки
-│   ├── icon/             # Иконки приложения
-│   └── screen/           # Splash экраны
-├── config.xml            # Конфигурация Cordova
-├── package.json          # Зависимости npm
-├── BUILD.md             # Инструкция по сборке
-└── README.md            # Это файл
+│   │   └── game.js          # Логика игры
+│   └── img/                 # Изображения
+├── android/                  # Android проект (генерируется)
+├── capacitor.config.ts      # Конфигурация Capacitor
+├── package.json             # Зависимости npm
+├── CAPACITOR_BUILD.md       # Инструкция по сборке
+└── README.md                # Этот файл
 ```
 
 ## 🎨 Цветовая палитра
