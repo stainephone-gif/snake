@@ -1,6 +1,7 @@
-import { CapacitorConfig } from '@capacitor/cli';
+const { CapacitorConfig } = require('@capacitor/cli');
 
-const config: CapacitorConfig = {
+/** @type {CapacitorConfig} */
+const config = {
   appId: 'com.neonsnake.game',
   appName: 'Neon Snake',
   webDir: 'www',
@@ -23,4 +24,4 @@ const config: CapacitorConfig = {
   }
 };
 
-export default config;
+module.exports = config;
